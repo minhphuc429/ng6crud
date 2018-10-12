@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
-
 import { AppComponent } from './app.component';
 import { CreateComponent } from './components/create/create.component';
 import { IndexComponent } from './components/index/index.component';
@@ -38,7 +36,6 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    SlimLoadingBarModule,
     HttpClientModule,
     ReactiveFormsModule
   ],
