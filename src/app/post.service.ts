@@ -7,25 +7,24 @@ import { Post } from './components/index/Post';
 })
 export class PostService {
 
-    uri = 'https://jsonplaceholder.typicode.com/posts';
+    baseUrl = 'https://jsonplaceholder.typicode.com/posts';
 
     constructor(private http: HttpClient) { }
 
-    addPost(title, body) {
+    createPost(title, body) {
         const obj = {
             title: title,
             body: body
         };
-        this.http.post(`${this.uri}`, obj)
-        .subscribe(res => console.log('Done'));
+        return this.http.post(`${this.baseUrl}`, obj);
     }
 
     getPosts() {
-        return this.http.get(`${this.uri}`);
+        return this.http.get(`${this.baseUrl}`);
     }
 
     editPost(id) {
-        return this.http.get(`${this.uri}/${id}`);
+        return this.http.get(`${this.baseUrl}/${id}`);
     }
 
     updatePost(title, body, id) {
@@ -34,11 +33,10 @@ export class PostService {
             title: title,
             body: body
         };
-        this.http.put(`${this.uri}/${id}`, obj)
-        .subscribe(res => console.log('Done'));
+        return this.http.put(`${this.baseUrl}/${id}`, obj);
     }
 
     deletePost(id) {
-        return this.http.get(`${this.uri}/${id}`);
+        return this.http.get(`${this.baseUrl}/${id}`);
     }
 }
